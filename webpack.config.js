@@ -17,6 +17,7 @@ module.exports = {
       directory: path.join(__dirname, "dist"),
     },
     port: 3000,
+    historyApiFallback: true,
   },
   module: {
     // exclude node_modules
@@ -26,10 +27,15 @@ module.exports = {
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
+      {
+        test: /\.(jpg|png|svg|gif)$/,
+        type: 'asset',
+      },
     ],
   },
   // pass all js files through Babel
   resolve: {
     extensions: ["*", ".js", ".jsx"],
   },
+  
 };
