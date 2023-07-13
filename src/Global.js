@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import SBSansUIRegular from './assets/font/SBSansUI-Regular.otf'
+import SBSansUIRegular from './assets/font/SB Sans Interface.otf'
 
 const StyledGlobal = createGlobalStyle`
     * {
@@ -8,12 +8,10 @@ const StyledGlobal = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         @font-face {
-            font-family: "SB Sans Interface";
-            src: url(${SBSansUIRegular}) format("otf");
-            
+            font-family: 'SB Sans Interface';
+            src: url(${SBSansUIRegular});
         }
         font-family: 'SB Sans Interface';
-        /* font-size: 14px; */
         list-style: none;
     }
 `
