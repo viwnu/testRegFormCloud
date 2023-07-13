@@ -10,6 +10,7 @@ const StyledGlobal = createGlobalStyle`
         @font-face {
             font-family: 'SB Sans Interface';
             src: url(${SBSansUIRegular});
+            src: url(${'./assets/font/SB Sans Interface.otf'});
         }
         font-family: 'SB Sans Interface';
         list-style: none;
