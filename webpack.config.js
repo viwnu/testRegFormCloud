@@ -6,6 +6,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'docs'),//for Github Pages
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -34,6 +35,10 @@ module.exports = {
       {
         test: /\.svg/,
         type: 'asset/resource'
+      },
+      {    
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: "file-loader"
       }
     ]
     
