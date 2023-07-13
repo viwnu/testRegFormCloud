@@ -13,9 +13,9 @@ function App() {
 
       <Container>
         <Routes>
-            <Route path="/" element={<StartPage/>} />
-            <Route path="reg" element={<RegPage/>} />
-            <Route path='*' element={<><p>Wrong URL</p></>}/>
+            <Route path="/#/" element={<StartPage/>} />
+            <Route path="/#/reg" element={<RegPage/>} />
+            <Route path='/#/*' element={<><p>Wrong URL</p></>}/>
         </Routes>
       </Container>
 
