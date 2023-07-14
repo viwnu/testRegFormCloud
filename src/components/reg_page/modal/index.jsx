@@ -38,7 +38,7 @@ export default function Modal ({show, setShow, setReadyToSend}) {
                     <>
                         <h3>Форма успешно отправлена</h3>
                         <IconRound $size='5rem' $color={props => props.theme.colors.green15} >
-                            <CircleCheckFilled/>
+                            <CircleCheckFilled width="3rem" height="3rem" />
                         </IconRound>
                         <StyledButton type='button' onClick={() => navigate('/')}>На главную</StyledButton>
                     </>
@@ -51,7 +51,7 @@ export default function Modal ({show, setShow, setReadyToSend}) {
                             </StyledCloseButton>
                         </div>
                         <IconRound $size='5rem' $color={props => props.theme.colors.red15} >
-                            <CircleCancelFilled/>
+                            <CircleCancelFilled width="3rem" height="3rem" />
                         </IconRound>
                         <StyledButton type='button' onClick={closeModal}>Закрыть</StyledButton>
                     </>
