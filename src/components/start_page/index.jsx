@@ -9,8 +9,6 @@ const StartPage = () => {
     const userInfo = useSelector((state) => state.userInfo.value)
     const dispatch = useDispatch()
 
-    console.log(userInfo)
-
     return (<>
         <FormCard
                 header = {<Header />}

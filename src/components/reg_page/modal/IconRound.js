@@ -6,6 +6,9 @@ const IconRound = styled(Icon).attrs(props => ({
 }))`
     border-radius: 100px;
     background-color: ${props => props.$color};
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export default IconRound

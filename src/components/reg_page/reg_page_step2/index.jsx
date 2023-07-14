@@ -13,12 +13,7 @@ export default function Step2Form({calculateStep, dispatch, userInfo}) {
             radio: userInfo.summary?.radio||'',
         }})
     const {fields, append, remove,} = useFieldArray({control, name: "advantages"})
-    
-    const setCurrentStepData = (data) => {
-        console.log('calling: ', data)
-        dispatch(data)
-    }
-    
+        
     return (
         <StyledForm>
             
@@ -91,13 +86,13 @@ export default function Step2Form({calculateStep, dispatch, userInfo}) {
             <div className="buttons">
                 <StyledLightButton type="button"
                     onClick={handleSubmit((data) => {
-                        setCurrentStepData(data)
+                        dispatch(data)
                         calculateStep(-1)
                     })}
                 >Назад</StyledLightButton>
                 <StyledButton type="button"
                     onClick={handleSubmit((data) => {
-                        setCurrentStepData(data)
+                        dispatch(data)
                         calculateStep(1)
                     })}
                 >Далее</StyledButton>

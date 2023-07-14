@@ -16,11 +16,6 @@ export default function Step3Form({calculateStep, dispatch, setReadyToSend, user
         return text.split(' ').join('').length
     }
 
-    const setCurrentStepData = (data) => {
-        console.log(data)
-        dispatch(data)
-    }
-
     const trigerSending = () => {
         setReadyToSend(true)
     }
@@ -49,13 +44,13 @@ export default function Step3Form({calculateStep, dispatch, setReadyToSend, user
             <div className="buttons">
                 <StyledLightButton type="button" className="light_button"
                     onClick={() => {
-                        (handleSubmit(setCurrentStepData))()
+                        (handleSubmit(dispatch))()
                         calculateStep(-1)
                     }}
                 >Назад</StyledLightButton>
                 <StyledButton type="button"
                     onClick={handleSubmit((data) => {
-                        setCurrentStepData(data)
+                        dispatch(data)
                         trigerSending()
                     })}
                 >Отправить</StyledButton>

@@ -1,6 +1,6 @@
 import { styled } from "styled-components"
 
-import deleteIcon from '../../assets/Delete.svg'
+import deleteIcon from '../../assets/Delete.svg?url'
 
 const StyledButton = styled.button`
     width: fit-content;
@@ -14,7 +14,7 @@ const StyledButton = styled.button`
       cursor: pointer;
     }
     @media ${props => props.theme.media.pcSmall} {
-        padding: 0.5rem 0.75rem;
+        padding: 0.25rem 0.5rem;
         height: 2rem;
         font-size: ${props => props.theme.size.pcSmall};
     }
@@ -39,7 +39,6 @@ const StyledIconButton = styled(StyledButton).attrs(props => ({
     $backgroundIcon: `url(${deleteIcon})`,
 }))`
     background-color: transparent;
-    background-image: ${props => props.$backgroundIcon};
     background-position: center;
     background-repeat: no-repeat;
     @media ${props => props.theme.media.tablet} {
@@ -48,7 +47,6 @@ const StyledIconButton = styled(StyledButton).attrs(props => ({
 `
 
 const StyledCloseButton = styled(StyledIconButton).attrs(props => ({
-    $backgroundIcon: `url(${props.$iconImg})`,
     $color: props.$color || 'transparent',
     $size: props.$size || '1.5rem',
 }))`
@@ -56,8 +54,10 @@ const StyledCloseButton = styled(StyledIconButton).attrs(props => ({
     height: ${props => props.$size};
     border-radius: 100px;
     background-color: ${props => props.$color};
-    background-image: ${props => props.$backgroundIcon};
-    background-repeat: unset;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export {StyledButton, StyledLightButton, StyledIconButton, StyledCloseButton}

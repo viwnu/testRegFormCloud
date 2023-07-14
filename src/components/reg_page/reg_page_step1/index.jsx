@@ -12,11 +12,6 @@ export default function Step1Form({calculateStep, dispatch, userInfo}) {
             Surname: userInfo.summary?.Surname||'',
             sex: userInfo.summary?.sex||''
         }})
-    
-    const setCurrentStepData = (data) => {
-        console.log(data)
-        dispatch(data)
-    }
 
     return (
         <StyledForm>
@@ -76,13 +71,13 @@ export default function Step1Form({calculateStep, dispatch, userInfo}) {
             <div className="buttons">
                 <StyledLightButton type="button" className="light_button"
                     onClick={handleSubmit((data) => {
-                        setCurrentStepData(data)
+                        dispatch(data)
                         calculateStep(-1)
                     })}
                 >Назад</StyledLightButton>
                 <StyledButton type="button"
                     onClick={handleSubmit((data) => {
-                        setCurrentStepData(data)
+                        dispatch(data)
                         calculateStep(1)
                     })}
                 >Далее</StyledButton>

@@ -21,7 +21,6 @@ const send = async (data, url) => {
           'Content-Type': 'application/json'
         }
       })
-      console.log('Успех:', await response)
       return (response.ok)
   
     } catch (error) {
@@ -34,8 +33,6 @@ export default function RegPage() {
     const [currentStep, setCurrentStep] = useState(1)//----------------------current step
     const [readyToSend, setReadyToSend] = useState(false)
     const calculateStep = (increment) => {
-        console.log('increment is: ' + increment);
-        console.log('current step is: ' + currentStep);
         const newStep = currentStep+increment <= 1? 1: (currentStep+increment >= 3? 3: currentStep+increment)
         setCurrentStep(newStep)
     }
@@ -66,8 +63,6 @@ export default function RegPage() {
                 userInfo={userInfo}
             />)
     }
-    console.log('RegPage')
-    console.log(userInfo)
 
     return (<>
         <>

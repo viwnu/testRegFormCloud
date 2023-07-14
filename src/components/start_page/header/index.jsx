@@ -1,6 +1,4 @@
-import styled from 'styled-components'
-
-import Icon from '../../styles/Icon'
+import FolderIcon from '../../../assets/Folder.svg'
 import StyledHeader from './StyledHeader'
 import StyledAvatar from './StyledAvatar'
 
@@ -20,15 +18,15 @@ export default function Header({name}) {
                 <h3>{userName}</h3>
                     <ul className="socials">
                         <li>
-                            <Icon/>
+                            <FolderIcon width="1rem" height="1rem"/>
                             <a href="https://t.me/_someone">Telegram</a>
                         </li>
                         <li>
-                            <Icon/>
+                            <FolderIcon width="1rem" height="1rem"/>
                             <a href="https://github.com/viwnu">GitHub</a>
                         </li>
                         <li>
-                            <Icon/>
+                            <FolderIcon width="1rem" height="1rem"/>
                             <a href="">Resume</a>
                         </li>
                     </ul>

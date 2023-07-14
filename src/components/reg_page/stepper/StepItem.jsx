@@ -25,7 +25,6 @@ const Dot = styled.div`
     width: 1rem;
     height: 1rem;
     background-color: ${props => props.theme.backgroundColor};
-    background-image: ${props => props.theme.backgroundImage};
     background-position: center;
     border-radius: 0.75rem;
 `
@@ -43,7 +42,7 @@ const choseTheme = (group, theme) => {
                 backgroundColor: theme.colors.purple100,
                 textColor: theme.colors.purple100,
                 lineColor: theme.colors.purple100,
-                backgroundImage: `url(${CheckSmall})`,
+                Icon: CheckSmall,
             })
             break;
 
@@ -52,7 +51,7 @@ const choseTheme = (group, theme) => {
                 backgroundColor: theme.colors.purple100,
                 textColor: theme.colors.purple100,
                 lineColor: theme.colors.purple100,
-                backgroundImage: `url(${DotSmall})`,
+                Icon: DotSmall,
             })
             break;
     
@@ -76,13 +75,17 @@ const chouseStepTheme = (step, current, theme) => {
     }
 }
 
+const Icon = ({CurrentIcon}) => (CurrentIcon? <CurrentIcon width="1rem" height="1rem"/>: <></>)
+
 export default function StepItem(props) {
     const themeContext = useContext(ThemeContext)
     const currentTheme = chouseStepTheme(props.step, props.currentItem, themeContext)
     return (
         <StyledItem $width={props.$width} >
             <ThemeProvider theme={currentTheme} >
-                <Dot/>
+                <Dot>
+                    <Icon CurrentIcon={currentTheme.Icon} />
+                </Dot>
                 <Line/>
                 <p>{props.currentItem}</p>
             </ThemeProvider>        

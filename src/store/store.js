@@ -15,7 +15,6 @@ const store = configureStore({
 })
 
 store.subscribe(()=>{
-    console.log('state is: ', store.getState());
     localStorage.setItem('reduxState', JSON.stringify(store.getState()))
 })
 

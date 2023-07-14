@@ -5,13 +5,13 @@ import { StyledButton, StyledCloseButton } from '../../styles/StyledButton'
 import StyledModal from './StyledModal'
 import StyledModalCard from './StyledModalCard'
 import IconRound from './IconRound'
+
 import CircleCheckFilled from '../../../assets/Circle Check Filled.svg'
 import CircleCancelFilled from '../../../assets/Circle Cancel Filled.svg'
 import Close from '../../../assets/Close.svg'
 
 export default function Modal ({show, setShow, setReadyToSend}) {
     const navigate = useNavigate()
-    console.log('show is ', show)
     const ChangeBodyOverflow = (value) => {
         document.querySelector('body').style.overflow = value
     }
@@ -37,16 +37,22 @@ export default function Modal ({show, setShow, setReadyToSend}) {
                 {show? (
                     <>
                         <h3>Форма успешно отправлена</h3>
-                        <IconRound $size='5rem' $color={props => props.theme.colors.green15} $iconImg={CircleCheckFilled} />
+                        <IconRound $size='5rem' $color={props => props.theme.colors.green15} >
+                            <CircleCheckFilled/>
+                        </IconRound>
                         <StyledButton type='button' onClick={() => navigate('/')}>На главную</StyledButton>
                     </>
                 ):(
                     <>
                         <div className='errHeader'>
                             <h3>Ошибка</h3>
-                            <StyledCloseButton $iconImg={Close} $color={props => props.theme.colors.black4} onClick={closeModal} />
+                            <StyledCloseButton $color={props => props.theme.colors.black4} onClick={closeModal} >
+                                <Close/>
+                            </StyledCloseButton>
                         </div>
-                        <IconRound $size='5rem' $color={props => props.theme.colors.red15} $iconImg={CircleCancelFilled} />
+                        <IconRound $size='5rem' $color={props => props.theme.colors.red15} >
+                            <CircleCancelFilled/>
+                        </IconRound>
                         <StyledButton type='button' onClick={closeModal}>Закрыть</StyledButton>
                     </>
                 )}
