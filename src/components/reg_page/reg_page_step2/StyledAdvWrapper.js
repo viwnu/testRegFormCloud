@@ -7,9 +7,13 @@ const StyledAdvWrapper =styled.div`
         gap: 0.5rem;
     }
     div {
-        width: 100%;
         display: flex;
         flex-direction: column;
+        @media ${props => props.theme.media.pcSmall},
+        ${props => props.theme.media.tablet},
+        ${props => props.theme.media.phone} {
+            width: 100%;
+        }
     }
 `
 

@@ -39,7 +39,7 @@ export default function Step2Form({calculateStep, dispatch, userInfo}) {
                 Checkbox group
                 <fieldset>
                     <ul>
-                        {[1, 2, 3].map((number) => 
+                        {[1, 2, 3].map((number) => //лень прописывать но откуда-то приходит же это
                             <li key={number}>
                                 <label className="checkboxsesRadios">
                                     <input type="checkbox" {...register(`checkbox.${number-1}`)}/>
@@ -77,7 +77,6 @@ export default function Step2Form({calculateStep, dispatch, userInfo}) {
                 >Назад</StyledLightButton>
                 <StyledButton type="button"
                     onClick={handleSubmit((data) => {
-                        console.log('adv is: ', data.advantages.map(item=>item.value))////////////////////////log
                         dispatch({advantages: data.advantages.map(item=>item.value), ...data})
                         calculateStep(1)
                     })}
