@@ -1,4 +1,4 @@
-import { useForm, useFieldArray, Controller } from "react-hook-form"
+import { useForm, useFieldArray } from "react-hook-form"
 
 import AdvInput from "./adv_input"
 
@@ -8,37 +8,22 @@ import { StyledButton, StyledLightButton } from "../../styles/StyledButton"
 export default function Step2Form({calculateStep, dispatch, userInfo}) {
     const { register, control, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
-            advantages: userInfo.summary?.advantages||'',
+            advantages: userInfo.summary?.advantages||[{value:''}],
             checkbox: userInfo.summary?.checkbox||'',
             radio: userInfo.summary?.radio||'',
         }})
-    const {fields, append, remove,} = useFieldArray({control, name: "advantages"})
-        
+    const {fields, append, remove} = useFieldArray({control, name: "advantages"})
+
     return (
         <StyledForm>
             
             <label>
                 Advantages
                 <ul>
-                    {fields.map((item, index) => {
+                    {fields.map((field, index) => {
                         return (
-                            <li key={item.id}>
-                              <Controller
-                                render={({
-                                    field : {onChange, onBlur, value},
-                                    fieldState: {error}
-                                }) => <AdvInput
-                                  onChange={onChange}
-                                  onBlur={onBlur}
-                                  value={value|| ''}
-                                  remove={() => remove(index)}
-                                  error={error}
-                                  required
-                                />}
-                                name={`advantages.${index}`}
-                                control={control}
-                                rules={{required:true}}
-                              />
+                            <li key={field.id}>
+                              <AdvInput {...{ control, index, field, remove, errors }} />
                             </li>
                           )    
                             
@@ -46,7 +31,7 @@ export default function Step2Form({calculateStep, dispatch, userInfo}) {
                     )}
                 </ul>
                 <StyledLightButton type="button" className="light_button"
-                    onClick={() => {append('')}
+                    onClick={() => {append({value: ''})}
                 }>+</StyledLightButton>
             </label>
 
@@ -92,7 +77,8 @@ export default function Step2Form({calculateStep, dispatch, userInfo}) {
                 >Назад</StyledLightButton>
                 <StyledButton type="button"
                     onClick={handleSubmit((data) => {
-                        dispatch(data)
+                        console.log('adv is: ', data.advantages.map(item=>item.value))////////////////////////log
+                        dispatch({advantages: data.advantages.map(item=>item.value), ...data})
                         calculateStep(1)
                     })}
                 >Далее</StyledButton>

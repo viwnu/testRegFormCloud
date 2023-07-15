@@ -41,13 +41,6 @@ const StyledForm = styled.form`
             font-size: ${props => props.theme.size.phone};
         }
     }
-    li>div {
-        width: 100%;
-        display: flex;
-        @media ${props => props.theme.media.phone} {
-            gap: 0.5rem;
-        }
-    }
     p {
         color: #E84E58;
         width: 100%;
