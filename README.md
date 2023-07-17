@@ -5,3 +5,5 @@
 
 ## Technologies that have been used:
 This is SPA based on React(https://react.dev/)
+![Alt text](./readmeIcons/react.svg)
+<img src="./readmeIcons/react.svg">
